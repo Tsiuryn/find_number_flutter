@@ -48,7 +48,7 @@ class GameController {
   }
 
   void checkData(GameViewData data) {
-    if(_controllerCurrentViewData != data) return;
+    if (_controllerCurrentViewData != data) return;
 
     final index = _controllerListData.indexOf(data);
     _controllerListData[index] = data.copyWith(isVisible: false);
@@ -63,13 +63,13 @@ class GameController {
     }
   }
 
-  void _startTimer () {
+  void _startTimer() {
     _timer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
         _currentTime--;
         onTick?.call(_currentTime);
-        if(_currentTime == 0){
+        if (_currentTime == 0) {
           onChangedStatus(StatusGame.lose);
           timer.cancel();
         }
@@ -77,7 +77,7 @@ class GameController {
     );
   }
 
-  void dispose(){
+  void dispose() {
     _timer?.cancel();
   }
 }

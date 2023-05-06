@@ -1,7 +1,12 @@
 {
   "find_number_page__appbar_title": "Найди число",
   "settings_page__appbar_title": "Настройки",
+  "settings_page__seconds": "Время игры, сек",
+  "settings_page__horizont": "Количество колонок, шт",
+  "settings_page__vertical": "Количество рядов, шт",
+  "settings_page__button": "Настройки по умолчанию",
   "records__appbar_title": "Рекорды",
+  "records__no_records": "Не сохранено ни одной победы",
   "find_number_page__status_win": "Вы выиграли!",
   "find_number_page__status_lose": "Вы проиграли!",
   "find_number_page__new_game": "Новая игра"

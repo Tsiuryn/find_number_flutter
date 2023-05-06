@@ -23,4 +23,16 @@ class Environment {
       _$EnvironmentFromJson(json);
 
   Map<String, dynamic> toJson() => _$EnvironmentToJson(this);
+
+  Environment copyWith({
+    int? countViewsInVer,
+    int? countViewsInHor,
+    int? seconds,
+  }) {
+    return Environment(
+      countViewsInVer: countViewsInVer ?? this.countViewsInVer,
+      countViewsInHor: countViewsInHor ?? this.countViewsInHor,
+      seconds: seconds ?? this.seconds,
+    );
+  }
 }

@@ -1,15 +1,21 @@
+import 'package:find_number/app/config/config.dart';
 import 'package:find_number/app/config/environment.dart';
+import 'package:find_number/app/config/records.dart';
 import 'package:find_number/app/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/game_loc.dart';
+import 'package:intl/intl.dart';
 
 import 'controller/game_controller.dart';
 
 class FindNumberPage extends StatefulWidget {
   static const id = 'FindNumberPage';
   final Environment environment;
+  final Config config;
 
-  const FindNumberPage({Key? key, required this.environment, }) : super(key: key);
+  const FindNumberPage(
+      {Key? key, required this.environment, required this.config})
+      : super(key: key);
 
   @override
   State<FindNumberPage> createState() => _FindNumberPageState();
@@ -31,6 +37,16 @@ class _FindNumberPageState extends State<FindNumberPage> {
         countViewInHor: env.countViewsInHor,
       ),
       onChangedStatus: (status) {
+        if (status == StatusGame.win) {
+          _addToRecords(
+            AppRecord(
+              countViewsInVer: env.countViewsInVer,
+              countViewsInHor: env.countViewsInHor,
+              seconds: (env.seconds - _secondsLeft),
+              date: DateFormat('dd-MM-yyyy HH:mm:ss').format(DateTime.now()),
+            ),
+          );
+        }
         setState(() {
           statusGame = status;
           _secondsLeft = env.seconds;
@@ -43,6 +59,10 @@ class _FindNumberPageState extends State<FindNumberPage> {
       },
     );
     _secondsLeft = gameController.secondsLeft;
+  }
+
+  void _addToRecords(AppRecord record) {
+    widget.config.setRecords(record);
   }
 
   @override

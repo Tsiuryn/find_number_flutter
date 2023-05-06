@@ -1,7 +1,12 @@
 {
   "find_number_page__appbar_title": "Find number",
   "settings_page__appbar_title": "Settings",
+  "settings_page__seconds": "Seconds",
+  "settings_page__horizont": "Number of columns, pcs",
+  "settings_page__vertical": "Number of rows, pcs",
+  "settings_page__button": "Default params",
   "records__appbar_title": "Records",
+  "records__no_records": "No wins saved",
   "find_number_page__status_win": "You have won!",
   "find_number_page__status_lose": "You lose!",
   "find_number_page__new_game": "New game"

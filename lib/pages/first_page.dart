@@ -1,6 +1,8 @@
 import 'package:find_number/app/config/environment.dart';
-import 'package:find_number/app/config/pref.dart';
+import 'package:find_number/app/config/config.dart';
 import 'package:find_number/pages/find_number_page.dart';
+import 'package:find_number/pages/records_page.dart';
+import 'package:find_number/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/game_loc.dart';
 
@@ -43,6 +45,7 @@ class _FirstPageState extends State<FirstPage> {
                     MaterialPageRoute(
                       builder: (context) => FindNumberPage(
                         environment: value,
+                        config: _config,
                       ),
                     ),
                   );
@@ -57,7 +60,19 @@ class _FirstPageState extends State<FirstPage> {
               ),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                getEnv().then((value) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SettingsPage(
+                        env: value,
+                        config: _config,
+                      ),
+                    ),
+                  );
+                });
+              },
               child: Text(
                 l10n.settings_page__appbar_title,
                 style: const TextStyle(
@@ -68,7 +83,17 @@ class _FirstPageState extends State<FirstPage> {
             ),
             TextButton(
               onPressed: () {
-
+                _config.getRecords().then((value) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RecordsPage(
+                        records: value,
+                        config: _config,
+                      ),
+                    ),
+                  );
+                });
               },
               child: Text(
                 l10n.records__appbar_title,
