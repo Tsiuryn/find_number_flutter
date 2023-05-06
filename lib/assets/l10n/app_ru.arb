@@ -1,0 +1,8 @@
+{
+  "find_number_page__appbar_title": "Найди число",
+  "settings_page__appbar_title": "Настройки",
+  "records__appbar_title": "Рекорды",
+  "find_number_page__status_win": "Вы выиграли!",
+  "find_number_page__status_lose": "Вы проиграли!",
+  "find_number_page__new_game": "Новая игра"
+}
