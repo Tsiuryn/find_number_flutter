@@ -21,12 +21,14 @@ class GameController {
 
   late int _currentTime;
   Timer? _timer;
-  final List<int> _data = List.generate(300, (index) => index);
+  final List<int> _data = List.generate(999, (index) => index);
   late GameViewData _controllerCurrentViewData;
   List<GameViewData> _controllerListData = [];
 
   int get secondsLeft => _currentTime;
+
   List<GameViewData> get listData => _controllerListData;
+
   GameViewData get currentViewData => _controllerCurrentViewData;
 
   void _setUpGame() {

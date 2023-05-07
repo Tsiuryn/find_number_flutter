@@ -304,11 +304,14 @@ class _GameButton extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
                   color: Colors.black26),
               alignment: Alignment.center,
-              child: Text(
-                data.title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+              child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text(
+                  data.title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
                 ),
               ),
             ),
